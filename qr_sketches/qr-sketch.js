@@ -484,7 +484,7 @@ let tephroSketch = (w) => {
         tephroOBJ = w.loadModel('../qr_sketches/tephro.obj');
     }
     w.setup = () => {
-        let myCanvas = w.createCanvas(258, 742, w.WEBGL);
+        let myCanvas = w.createCanvas(258, 752, w.WEBGL);
         w.angleMode(w.DEGREES)
         myCanvas.parent("tephro-container");
         w.stroke(0, 255, 0)

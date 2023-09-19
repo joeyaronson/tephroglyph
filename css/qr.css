@@ -60,32 +60,30 @@ torus4{
 
 
 tephro {
-    /* width: 288px; */
-    /* height: 800px; */
     width: 258px;
-    height: 770px;
+    height: 780px;
     position: absolute;
-    top: 468px;
+    top: 460px;
 }
 tephro2 {
     width: 258px;
-    height: 770px;
+    height: 780px;
     position: absolute;
-    top: 458px;
+    top: 450px;
     left:10px;
 }
 tephro3 {
     width: 258px;
-    height: 770px;
+    height: 780px;
     position: absolute;
-    top: 448px;
+    top: 440px;
     left:20px;
 }
 tephro4 {
     width: 258px;
-    height: 770px;
+    height: 780px;
     position: absolute;
-    top: 438px;
+    top: 430px;
     left:30px;
 }
 
