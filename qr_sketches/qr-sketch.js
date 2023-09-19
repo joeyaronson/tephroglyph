@@ -1,8 +1,12 @@
 let waveSketch = (w) => {
+    w.preload = () => {
+        font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    }
     w.setup = () => {
         let myCanvas = w.createCanvas(604, 357, w.WEBGL);
         myCanvas.parent("wave-container");
-
+        w.textFont(font);
+        w.textSize(16);
         w.rectMode(w.CENTER);
         w.angleMode(w.DEGREES);
         SIZE = w.width / 15;
@@ -12,20 +16,27 @@ let waveSketch = (w) => {
         w.loadTiles();
     }
     let t = [];
-    let H = 10;
-    let D = 200;
+
     let SIZE;
     let fc = 0;
     w.draw = () => {
         w.background(0);
+        w.fill(0,255,0)
+        w.orbitControl();
+
+        w.text(`x: ${t[0].z}\ny: ${t[1].z}\nz: ${t[5].z}`, -290, -150)
+        w.push()
         w.rotateX(60);
         w.rotateZ(fc)
+        w.fill(0)
 
         for (let i = 0; i < t.length; i++) {
             t[i].move();
             t[i].display();
         }
         fc++;
+        w.pop();
+    
 
     }
 
@@ -66,20 +77,26 @@ let waveSketch = (w) => {
 }
 
 let torusSketch = (w) => {
+    w.preload = () => {
+        font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    }
     w.setup = () => {
-        let myCanvas = w.createCanvas(400, 962, w.WEBGL);
+        let myCanvas = w.createCanvas(360, 934, w.WEBGL);
         myCanvas.parent("torus-container");
-
-        // w.angleMode(w.DEGREES);
+        w.textFont(font);
+        w.textSize(20);
+        w.textLeading(18);
         w.stroke(0, 255, 0);
         w.fill(0);
     }
     w.draw = () => {
         w.background(0);
+        w.fill(0)
+        w.orbitControl();
 
 
         w.push()
-        w.translate(0, -320)
+        w.translate(0, -310)
         w.rotateY(w.radians(w.frameCount))
 
         w.torus(75, 50, 20, 8)
@@ -87,7 +104,7 @@ let torusSketch = (w) => {
         w.pop()
 
         w.push()
-        w.translate(0, -50)
+        w.translate(0, -65)
         w.rotateY(w.radians(w.frameCount * 1.1))
         w.rotateX(w.radians(20))
 
@@ -96,7 +113,7 @@ let torusSketch = (w) => {
         w.pop()
 
         w.push()
-        w.translate(0, 150)
+        w.translate(0, 165)
         w.rotateY(w.radians(w.frameCount * 1.2))
         w.rotateX(w.radians(60))
 
@@ -106,12 +123,14 @@ let torusSketch = (w) => {
 
 
         w.push()
-        w.translate(0, 340)
+        w.translate(0, 360)
         w.rotateY(w.radians(w.frameCount * 1.3))
         w.rotateX(w.radians(90))
 
         w.torus(75, 50, 20, 8)
         w.pop()
+        w.fill(0, 255, 0)
+        w.text(("angle--" + String(w.radians(w.frameCount % 360))).split("").join("\n"), -160, -435)
 
     }
 }
@@ -269,7 +288,7 @@ let codeSketch = (w) => {
     }
     w.setup = () => {
 
-        let myCanvas = w.createCanvas(713, 173);
+        let myCanvas = w.createCanvas(704, 173);
         myCanvas.parent("code-container");
         w.textFont(font);
 
@@ -381,7 +400,7 @@ resetMatrix();
                 } else {
                     showCursor = "_";
                 }
-                if(this.deleted){
+                if (this.deleted) {
                     showCursor = "_"
                 }
             }
@@ -465,7 +484,7 @@ let tephroSketch = (w) => {
         tephroOBJ = w.loadModel('../qr_sketches/tephro.obj');
     }
     w.setup = () => {
-        let myCanvas = w.createCanvas(288, 773, w.WEBGL);
+        let myCanvas = w.createCanvas(258, 742, w.WEBGL);
         w.angleMode(w.DEGREES)
         myCanvas.parent("tephro-container");
         w.stroke(0, 255, 0)
@@ -479,7 +498,7 @@ let tephroSketch = (w) => {
         w.push();
 
         w.translate(0, 30, 0)
-        w.scale(2300);
+        w.scale(2400);
         w.background(0)
         w.rotateZ(270);
         w.rotateX(w.frameCount);
