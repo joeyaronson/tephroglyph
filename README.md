@@ -1,3 +1,3 @@
 # tephroglyph
 
-www.tephroglyph.com/qr
+https://www.tephroglyph.com/qr
