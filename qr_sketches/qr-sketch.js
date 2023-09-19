@@ -104,7 +104,7 @@ let torusSketch = (w) => {
         w.pop()
 
         w.push()
-        w.translate(0, -65)
+        w.translate(0, -55)
         w.rotateY(w.radians(w.frameCount * 1.1))
         w.rotateX(w.radians(20))
 
