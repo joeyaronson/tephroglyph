@@ -22,11 +22,10 @@ let waveSketch = (w) => {
     w.draw = () => {
         w.background(0);
         w.fill(0, 255, 0)
+        w.orbitControl();
 
         w.text(`x: ${t[0].z}\ny: ${t[1].z}\nz: ${t[5].z}`, -290, -150)
         w.push()
-        w.orbitControl();
-
         w.rotateX(60);
         w.rotateZ(fc)
         w.fill(0)
@@ -93,11 +92,10 @@ let torusSketch = (w) => {
     w.draw = () => {
         w.background(0);
         w.fill(0)
-        w.push()
-
         w.orbitControl();
 
 
+        w.push()
         w.translate(0, -310)
         w.rotateY(w.radians(w.frameCount))
 
@@ -106,8 +104,6 @@ let torusSketch = (w) => {
         w.pop()
 
         w.push()
-        w.orbitControl();
-
         w.translate(0, -55)
         w.rotateY(w.radians(w.frameCount * 1.1))
         w.rotateX(w.radians(20))
@@ -117,8 +113,6 @@ let torusSketch = (w) => {
         w.pop()
 
         w.push()
-        w.orbitControl();
-
         w.translate(0, 165)
         w.rotateY(w.radians(w.frameCount * 1.2))
         w.rotateX(w.radians(60))
@@ -129,8 +123,6 @@ let torusSketch = (w) => {
 
 
         w.push()
-        w.orbitControl();
-
         w.translate(0, 360)
         w.rotateY(w.radians(w.frameCount * 1.3))
         w.rotateX(w.radians(90))
@@ -170,7 +162,7 @@ let cubeSketch = (w) => {
     let c = [];
     w.draw = () => {
         w.background(0);
-        w.orbitControl();
+        w.orbitControl()
         w.strokeWeight(2);
         w.stroke(0, 255, 0);
 
@@ -503,8 +495,8 @@ let tephroSketch = (w) => {
 
 
     w.draw = () => {
-        w.push();
         w.orbitControl()
+        w.push();
         w.translate(0, 30, 0)
         w.scale(2400);
         w.background(0)
