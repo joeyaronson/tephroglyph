@@ -21,7 +21,7 @@ let waveSketch = (w) => {
     let fc = 0;
     w.draw = () => {
         w.background(0);
-        w.fill(0,255,0)
+        w.fill(0, 255, 0)
         w.orbitControl();
 
         w.text(`x: ${t[0].z}\ny: ${t[1].z}\nz: ${t[5].z}`, -290, -150)
@@ -36,7 +36,7 @@ let waveSketch = (w) => {
         }
         fc++;
         w.pop();
-    
+
 
     }
 
@@ -162,7 +162,7 @@ let cubeSketch = (w) => {
     let c = [];
     w.draw = () => {
         w.background(0);
-
+        w.orbitControl();
         w.strokeWeight(2);
         w.stroke(0, 255, 0);
 
@@ -496,7 +496,7 @@ let tephroSketch = (w) => {
 
     w.draw = () => {
         w.push();
-
+        w.orbitControl()
         w.translate(0, 30, 0)
         w.scale(2400);
         w.background(0)
