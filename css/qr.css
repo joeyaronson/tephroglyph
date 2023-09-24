@@ -35,7 +35,7 @@ torus {
     left: 628px;
 }
 
-torus2{
+torus2 {
     width: 360px;
     height: 962px;
     position: absolute;
@@ -43,14 +43,15 @@ torus2{
     left: 638px;
 }
 
-torus3{
+torus3 {
     width: 360px;
     height: 962px;
     position: absolute;
     top: 26px;
     left: 648px;
 }
-torus4{
+
+torus4 {
     width: 360px;
     height: 962px;
     position: absolute;
@@ -65,26 +66,29 @@ tephro {
     position: absolute;
     top: 460px;
 }
+
 tephro2 {
     width: 258px;
     height: 780px;
     position: absolute;
     top: 450px;
-    left:10px;
+    left: 10px;
 }
+
 tephro3 {
     width: 258px;
     height: 780px;
     position: absolute;
     top: 440px;
-    left:20px;
+    left: 20px;
 }
+
 tephro4 {
     width: 258px;
     height: 780px;
     position: absolute;
     top: 430px;
-    left:30px;
+    left: 30px;
 }
 
 cube {
@@ -119,6 +123,14 @@ coder {
     left: 316px;
 }
 
+glyph {
+    width: 1030px;
+    height: 120px;
+    position: absolute;
+    top: 1280px;
+    left: 16px;
+}
+
 
 .window-title {
     background-color: #00ff00;
@@ -141,7 +153,6 @@ coder {
     position: absolute;
     top: 2500px;
     left: 0px;
-    /* background-color: aqua; */
 }
 
 .block {
@@ -160,7 +171,14 @@ body {
 }
 
 .container {
-    /* background-color: aqua; */
     position: relative;
     width: 1100px;
+}
+
+bord {
+    width: 1060px;
+    height: 1400px;
+    position: absolute;
+    border: solid 4px #00ff00;
+    top: 16px;
 }

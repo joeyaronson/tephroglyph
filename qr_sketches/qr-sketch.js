@@ -508,6 +508,198 @@ let tephroSketch = (w) => {
 
 }
 
+let glyphSketch = (w) => {
+    w.setup =()=> {
+       let myCanvas =  w.createCanvas(1030, 120);
+        myCanvas.parent("glyph-container");
+
+        w.textSize(100);
+        w.stroke(0, 255, 0);
+        loadGlyphs();
+      }
+      let SIZE = 30;
+      let g = [];
+      
+      function loadGlyphs() {
+        let string = "tephroglyph";
+        for (let i = 0; i < string.length; i++) {
+          g.push(
+            new Glyph(
+              60 + i * (SIZE * 2.7 + 10),
+              w.height / 2,
+              String.fromCharCode(w.floor(w.random(33, 125))),
+              string[i]
+            )
+          );
+        }
+      }
+      
+      let restartTimer = 0;
+      w.draw = ()=> {
+        w.background(0);
+      
+        w.fill(0, 255, 0);
+        for (let glyph of g) {
+          glyph.draw();
+          if (w.frameCount % 5 === 0) {
+            glyph.move();
+          }
+        }
+      
+        if (g.filter((x) => !x.done).length === 0) {
+          restartTimer++;
+        }
+      
+        if (restartTimer > 300) {
+          restart();
+        }
+      }
+      
+      const restart = () => {
+        g = [];
+        loadGlyphs();
+        restartTimer = 0;
+      };
+      
+      /*   ____   0
+          /_\./_\ 1,2,3,,4,5,6
+          \./_\./ 7,8,9,10,11
+      
+      */
+      class Glyph {
+        constructor(x, y, char, goalChar) {
+          this.x = x;
+          this.y = y;
+          this.char = char;
+          this.goalChar = goalChar;
+          this.pos = [
+            [-SIZE / 2, -getHeight(SIZE)],
+            [SIZE / 2, -getHeight(SIZE)],
+            /**/
+            [-SIZE, 0],
+            [0, 0],
+            [SIZE, 0],
+            /**/
+            [-SIZE / 2, getHeight(SIZE)],
+            [SIZE / 2, getHeight(SIZE)],
+          ];
+          this.charCode = this.char.charCodeAt(0);
+          this.done = false;
+        }
+      
+        draw() {
+          w.push();
+          w.translate(this.x, this.y);
+          w.strokeWeight(1);
+          w.line(this.pos[0][0], this.pos[0][1], this.pos[1][0], this.pos[1][1]);
+          w.line(this.pos[0][0], this.pos[0][1], this.pos[3][0], this.pos[3][1]);
+          w.line(this.pos[1][0], this.pos[1][1], this.pos[3][0], this.pos[3][1]);
+          w.line(this.pos[1][0], this.pos[1][1], this.pos[4][0], this.pos[4][1]);
+          w.line(this.pos[2][0], this.pos[2][1], this.pos[3][0], this.pos[3][1]);
+          w.line(this.pos[3][0], this.pos[3][1], this.pos[4][0], this.pos[4][1]);
+          w.line(this.pos[2][0], this.pos[2][1], this.pos[5][0], this.pos[5][1]);
+          w.line(this.pos[3][0], this.pos[3][1], this.pos[5][0], this.pos[5][1]);
+          w.line(this.pos[3][0], this.pos[3][1], this.pos[6][0], this.pos[6][1]);
+          w.line(this.pos[4][0], this.pos[4][1], this.pos[6][0], this.pos[6][1]);
+          w.line(this.pos[5][0], this.pos[5][1], this.pos[6][0], this.pos[6][1]);
+          w.fill(0);
+          w.strokeWeight(SIZE / 5);
+      
+          let stringCharCode = String(this.charCode);
+          if (Number(stringCharCode[stringCharCode.length - 1]) < 5) {
+            w.line(this.pos[0][0], this.pos[0][1], this.pos[1][0], this.pos[1][1]);
+          }
+          if (stringCharCode[0] == 1) {
+            w.line(this.pos[0][0], this.pos[0][1], this.pos[2][0], this.pos[2][1]);
+          }
+          let root = w.sqrt(this.charCode);
+      
+          if (Number(String(root)[String(root).length - 1]) < 5) {
+            w.line(this.pos[0][0], this.pos[0][1], this.pos[3][0], this.pos[3][1]);
+          }
+          let power = w.pow(this.charCode, 2);
+          if (Number(String(power)[String(power).length - 1]) % 2 === 0) {
+            w.line(this.pos[1][0], this.pos[1][1], this.pos[3][0], this.pos[3][1]);
+          }
+      
+          if (power % 7 === 0) {
+            w.line(this.pos[1][0], this.pos[1][1], this.pos[4][0], this.pos[4][1]);
+          }
+      
+          if (power % 3 === 0) {
+            w.line(this.pos[2][0], this.pos[2][1], this.pos[3][0], this.pos[3][1]);
+          }
+      
+          if (power % 2 === 0) {
+            w.line(this.pos[3][0], this.pos[3][1], this.pos[4][0], this.pos[4][1]);
+          }
+      
+          if ((power + this.charCode) % 3 === 0) {
+            w.line(this.pos[2][0], this.pos[2][1], this.pos[5][0], this.pos[5][1]);
+          }
+      
+          if (w.floor(this.charCode * 2.65) % 3 === 0) {
+            w.line(this.pos[3][0], this.pos[3][1], this.pos[5][0], this.pos[5][1]);
+          }
+      
+          if (w.floor(this.charCode * root) % 7 === 0) {
+            w.line(this.pos[3][0], this.pos[3][1], this.pos[6][0], this.pos[6][1]);
+          }
+      
+          if (w.floor(this.charCode * power) % 3 === 0) {
+            w.line(this.pos[4][0], this.pos[4][1], this.pos[6][0], this.pos[6][1]);
+          }
+      
+          if (w.floor(this.charCode * power - root) % 5 === 0) {
+            w.line(this.pos[5][0], this.pos[5][1], this.pos[6][0], this.pos[6][1]);
+          }
+      
+          if (w.floor(this.charCode * power - this.charCode) % 8 === 0) {
+            w.ellipse(this.pos[0][0], this.pos[0][1], SIZE * 0.4, SIZE * 0.4);
+          }
+      
+          if (w.floor(this.charCode * power - this.charCode) % 9 === 0) {
+            w.ellipse(this.pos[1][0], this.pos[1][1], SIZE * 0.4, SIZE * 0.4);
+          }
+      
+          if (w.floor(this.charCode * power - this.charCode) % 7 === 0) {
+            w.ellipse(this.pos[2][0], this.pos[2][1], SIZE * 0.4, SIZE * 0.4);
+          }
+      
+          if (w.floor((this.charCode / power) * root - this.charCode) % 7 === 0) {
+            w.ellipse(this.pos[3][0], this.pos[3][1], SIZE * 0.4, SIZE * 0.4);
+          }
+      
+          if (w.floor(root * 1234) % 3 === 0) {
+            w.ellipse(this.pos[4][0], this.pos[4][1], SIZE * 0.4, SIZE * 0.4);
+          }
+      
+          if (w.floor(root * 5412) % 3 === 0) {
+            w.ellipse(this.pos[5][0], this.pos[5][1], SIZE * 0.4, SIZE * 0.4);
+          }
+      
+          if (w.floor(root * power * 10000) % 3 === 0) {
+            w.ellipse(this.pos[6][0], this.pos[6][1], SIZE * 0.4, SIZE * 0.4);
+          }
+          w.pop();
+        }
+      
+        move() {
+          if (this.char !== this.goalChar) {
+            this.char = String.fromCharCode(w.floor(w.random(33, 125)));
+            this.charCode = this.char.charCodeAt(0);
+          } else {
+            this.done = true;
+          }
+        }
+      }
+      
+      const getHeight = (side) => {
+        return w.sqrt(side * side + ((side / 2) * side) / 2);
+      };
+
+}
+
 
 let wave = new p5(waveSketch);
 let torus = new p5(torusSketch);
@@ -516,4 +708,5 @@ let audio = new p5(audioSketch)
 let code = new p5(codeSketch)
 let quark = new p5(quarkSketch)
 let tephro = new p5(tephroSketch)
+let glyph = new p5(glyphSketch)
 
