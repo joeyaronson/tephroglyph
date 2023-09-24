@@ -197,7 +197,7 @@ let cubeSketch = (w) => {
             this.t = t;
             this.w = 0;
 
-            this.s2 = 25;
+            this.s2 = 20;
             this.ps = [];
         }
 
@@ -232,9 +232,9 @@ let cubeSketch = (w) => {
 
         move() {
             if (this.t <= 180) {
-                this.s = +w.cos(w.radians(this.t + 180)) * 25 + this.s2;
+                this.s = +w.cos(w.radians(this.t + 180)) * 20 + this.s2;
 
-                this.x = -w.sin(w.radians(this.t)) * 500;
+                this.x = -w.sin(w.radians(this.t)) * 100;
 
                 this.t++;
             } else {
@@ -245,7 +245,7 @@ let cubeSketch = (w) => {
             if (this.w > 180) {
                 this.t = 0;
                 this.w = 0;
-                this.s2 = 25;
+                this.s2 = 20;
             }
         }
     }
