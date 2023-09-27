@@ -312,10 +312,21 @@ let tephro = new p5(teph);
 let glp = new p5(glyphSketch);
 
 function openNav() {
-  console.log("asdf");
   let nav = document.getElementById("left-nav");
-  nav.style.width = "100px";
-  nav.style.padding = "16px";
+  const onMobile = window.matchMedia("(max-width: 1000px)");
+  
+  if (onMobile.matches) {
+    nav.style.width = "50%";
+    nav.style.fontSize = "60px"
+    nav.style.padding = "64px";
+
+  } else {
+    nav.style.width = "150px";
+    nav.style.fontSize = "16px"
+    nav.style.padding = "32px";
+
+
+  }
 }
 
 function closeNav() {

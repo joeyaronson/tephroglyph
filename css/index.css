@@ -2,11 +2,17 @@
   font-family: "whiteRabbit";
   src: url("white-rabbit.woff") format("woff");
 }
+html {
+  height: 100%;
+}
 
 body {
+  display: flex;
+  height: 100%;
   background-color: black;
   color: #00ff00;
   font-family: "whiteRabbit", "Courier New", sans-serif;
+  flex-direction: column;
 }
 
 header {
@@ -16,11 +22,19 @@ header {
   width: 100%;
   min-height: 150px;
 }
+.footer {
+  flex-shrink: 0;
+  height: 150px;
+  padding: 16px;
+  font-size: 16px;
+}
 
 content {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 0 auto;
+  padding: 16px;
 }
 
 title-container {
@@ -68,6 +82,19 @@ menu-container {
   float: right;
 }
 
+@media screen and (max-width: 1000px) {
+  .material-symbols-outlined {
+    font-size: 75px !important;
+    transition: transform ease-in 0.1s;
+    transform: scale(1);
+    cursor: pointer;
+  }
+
+  .material-symbols-outlined.close {
+    font-size: 75px !important;
+  }
+}
+
 left-nav {
   height: 100%;
   width: 0px;
@@ -85,16 +112,29 @@ ul {
   list-style-type: "> ";
   margin-top: 48px;
   padding-left: 8px;
+  /* display: inline-block; */
 }
 
 li {
-  margin: 16px 8px;
+  margin: 32px 8px;
 }
 a {
   color: inherit;
-  transition: font-size ease-in 0.1s;
-  font-size: 16px !important;
+  padding: 0px;
 }
-a:hover {
-  font-size: 17px !important;
+
+h1 {
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+.footer-icons {
+  margin-right: 8px;
+  font-size: 1em !important;
+}
+.github {
+  height: 0.9em;
+  width: 0.9em;
+  margin-right: 8px;
 }
