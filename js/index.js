@@ -310,3 +310,17 @@ let glyphSketch = (w) => {
 let tephro = new p5(teph);
 
 let glp = new p5(glyphSketch);
+
+function openNav() {
+  console.log("asdf");
+  let nav = document.getElementById("left-nav");
+  nav.style.width = "100px";
+  nav.style.padding = "16px";
+}
+
+function closeNav() {
+  let nav = document.getElementById("left-nav");
+
+  nav.style.width = "0";
+  nav.style.padding = "0px";
+}

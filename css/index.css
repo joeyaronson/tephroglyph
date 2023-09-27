@@ -1,42 +1,100 @@
 @font-face {
-    font-family: "whiteRabbit";
-    src: url('white-rabbit.woff') format('woff'),
-
+  font-family: "whiteRabbit";
+  src: url("white-rabbit.woff") format("woff");
 }
 
 body {
-    background-color: black;
-    color: #00ff00;
-    font-family: 'whiteRabbit', "Courier New", sans-serif;
+  background-color: black;
+  color: #00ff00;
+  font-family: "whiteRabbit", "Courier New", sans-serif;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 150px;
-    background-color: black;
+  display: flex;
+  justify-content: space-between;
 
+  width: 100%;
+  min-height: 150px;
 }
 
 content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 title-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    background-color: white;
-    width: 800px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  background-color: black;
+  width: 800px;
+  text-align: center;
 }
 
 glyph-container {
-    width: 500px;
-    height: 250px;
-    background-color: black;
+  width: 500px;
+  height: 250px;
+  background-color: black;
+}
+
+icon-container {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+}
+
+menu-container {
+  display: flex;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.material-symbols-outlined {
+  font-size: 36px !important;
+  transition: transform ease-in 0.1s;
+  transform: scale(1);
+  cursor: pointer;
+}
+.material-symbols-outlined:hover {
+  transform: scale(1.1);
+}
+
+.material-symbols-outlined.close {
+  font-size: 30px !important;
+  float: right;
+}
+
+left-nav {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding: 0px;
+  box-shadow: 1px 0px 5px #00ff00;
+}
+ul {
+  list-style-type: "> ";
+  margin-top: 48px;
+  padding-left: 8px;
+}
+
+li {
+  margin: 16px 8px;
+}
+a {
+  color: inherit;
+  transition: font-size ease-in 0.1s;
+  font-size: 16px !important;
+}
+a:hover {
+  font-size: 17px !important;
 }
