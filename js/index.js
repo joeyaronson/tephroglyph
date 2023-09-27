@@ -3,7 +3,7 @@ let teph = (w) => {
     tephroOBJ = w.loadModel("./qr_sketches/tephro.obj");
   };
   w.setup = () => {
-    let myCanvas = w.createCanvas(650, 150, w.WEBGL);
+    let myCanvas = w.createCanvas(700, 150, w.WEBGL);
     w.angleMode(w.DEGREES);
     myCanvas.parent("tephro");
     w.stroke(0, 255, 0);
