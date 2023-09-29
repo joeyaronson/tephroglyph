@@ -69,7 +69,7 @@ menu-container {
   user-select: none;
 }
 .material-symbols-outlined {
-  font-size: 36px !important;
+  font-size: 75px !important;
   transition: transform ease-in 0.1s;
   transform: scale(1);
   cursor: pointer;
@@ -79,7 +79,7 @@ menu-container {
 }
 
 .material-symbols-outlined.close {
-  font-size: 30px !important;
+  font-size: 75px !important;
   float: right;
 }
 
@@ -111,7 +111,7 @@ left-nav {
 }
 ul {
   list-style-type: "> ";
-  margin-top: 48px;
+  margin-top: 80px;
   padding-left: 8px;
   /* display: inline-block; */
 }

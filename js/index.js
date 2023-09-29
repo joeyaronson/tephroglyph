@@ -421,7 +421,7 @@ function openNav() {
     nav.style.fontSize = "60px";
     nav.style.padding = "64px";
   } else {
-    nav.style.width = "150px";
+    nav.style.width = "200px";
     nav.style.fontSize = "32px";
     nav.style.padding = "32px";
   }
