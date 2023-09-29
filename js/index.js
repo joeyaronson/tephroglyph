@@ -306,10 +306,51 @@ let glyphSketch = (w) => {
     return w.sqrt(side * side + ((side / 2) * side) / 2);
   };
 };
+let torusSketch = (w) => {
+
+  w.setup = () => {
+    let myCanvas = w.createCanvas(720, 720, w.WEBGL);
+    w.angleMode(w.DEGREES);
+    w.rectMode(w.CENTER)
+    myCanvas.parent("torus");
+  
+  };
+
+  w.draw = () => {
+    w.fill(0,0,0,30)
+    w.push()
+    w.translate(0,0,-200)
+    w.stroke(0, 255, 0);
+    w.strokeWeight(5);
+    w.rect(0,0,w.width, w.height)
+    w.fill(0)
+    w.noStroke()
+    w.rect(w.width/2+50,0,100,w.height)
+    w.rect(-w.width/2-50,0,100,w.height)
+    w.rect(0,-w.height/2-50,w.width,100)
+    w.rect(0,w.height/2+50,w.width,100)
+    
+    w.pop()
+    w.push();
+    w.stroke(0, 255, 0);
+    w.strokeWeight(1);
+    w.translate(0, 0, -w.cos(w.frameCount) * 150 - 150);
+    w.rotateX(30)
+    w.rotateY(w.frameCount)
+    w.fill(0);
+
+    w.torus(200, 100,24, 16)
+
+    w.pop();
+  };
+};
 
 let tephro = new p5(teph);
 
 let glp = new p5(glyphSketch);
+let torus = new p5(torusSketch);
+
+
 
 function openNav() {
   let nav = document.getElementById("left-nav");
@@ -322,12 +363,14 @@ function openNav() {
 
   } else {
     nav.style.width = "150px";
-    nav.style.fontSize = "16px"
+    nav.style.fontSize = "32px"
     nav.style.padding = "32px";
 
 
   }
 }
+
+
 
 function closeNav() {
   let nav = document.getElementById("left-nav");

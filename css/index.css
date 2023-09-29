@@ -44,6 +44,7 @@ title-container {
   background-color: black;
   width: 800px;
   text-align: center;
+  justify-content: flex-start;
 }
 
 glyph-container {
