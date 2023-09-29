@@ -13,7 +13,6 @@ body {
   color: #00ff00;
   font-family: "whiteRabbit", "Courier New", sans-serif;
   flex-direction: column;
-  text-shadow: 0px 0px 20px #00ff00;
 }
 
 header {

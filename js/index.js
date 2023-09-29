@@ -36,10 +36,6 @@ let glyphSketch = (w) => {
     w.textFont(font);
     w.textSize(60);
     w.fill(0, 255, 0);
-    w.drawingContext.shadowOffsetX = 0;
-    w.drawingContext.shadowOffsetY = 0;
-    w.drawingContext.shadowBlur = 20;
-    w.drawingContext.shadowColor = "#00ff00"
     loadGlyphs();
   };
 
