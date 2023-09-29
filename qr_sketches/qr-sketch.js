@@ -473,6 +473,7 @@ let quarkSketch = (w) => {
   };
   w.draw = () => {
     w.background(0);
+    w.fill(0, 255, 0);
     w.rect(10, 20, 80, 80);
     drawQR();
     if (w.frameCount % 5 === 0) {
