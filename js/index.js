@@ -307,39 +307,101 @@ let glyphSketch = (w) => {
   };
 };
 let torusSketch = (w) => {
-
+  w.preload = () => {
+    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+  };
   w.setup = () => {
     let myCanvas = w.createCanvas(720, 720, w.WEBGL);
+    w.textFont(font);
+    w.textSize(35);
     w.angleMode(w.DEGREES);
-    w.rectMode(w.CENTER)
+    w.rectMode(w.CENTER);
     myCanvas.parent("torus");
-  
+  };
+
+  const drawTab = (displayIcons) => {
+    w.fill(0);
+    w.stroke(0, 255, 0);
+    w.line(-w.width / 2, -w.height / 2, w.width / 2, -w.height / 2);
+    w.line(w.width / 2, -w.height / 2, w.width / 2, w.height / 2);
+    w.line(w.width / 2, w.height / 2, w.width / 2 - 15, w.height / 2);
+
+    w.beginShape();
+    w.vertex(-w.width / 2, -w.height / 2);
+    w.vertex(-w.width / 2, -w.height / 2 - 50);
+    w.vertex(-w.width / 2 + 125, -w.height / 2 - 50);
+    w.vertex(-w.width / 2 + 160, -w.height / 2);
+    w.endShape(w.CLOSE);
+    if (displayIcons) {
+      w.line(
+        -w.width / 2 + 10,
+        -w.height / 2 - 40,
+        -w.width / 2 + 40,
+        -w.height / 2 - 10
+      );
+      w.line(
+        -w.width / 2 + 10,
+        -w.height / 2 - 10,
+        -w.width / 2 + 40,
+        -w.height / 2 - 40
+      );
+
+      w.ellipse(-w.width / 2 + 65, -w.height / 2 - 25, 30, 30);
+      w.triangle(
+        -w.width / 2 + 90,
+        -w.height / 2 - 10,
+        -w.width / 2 + 110,
+        -w.height / 2 - 40,
+        -w.width / 2 + 130,
+        -w.height / 2 - 10
+      );
+    }
   };
 
   w.draw = () => {
-    w.fill(0,0,0,30)
-    w.push()
-    w.translate(0,0,-200)
-    w.stroke(0, 255, 0);
+    w.push();
+    w.translate(0, 0, -200);
+    w.noStroke();
+    w.fill(0);
+    w.rect(w.width / 2 + 50, 0, 100, w.height);
+    w.rect(-w.width / 2 - 50, 0, 100, w.height);
+    w.rect(0, -w.height / 2 - 50, w.width, 100);
+    w.rect(0, w.height / 2 + 50, w.width, 100);
     w.strokeWeight(5);
-    w.rect(0,0,w.width, w.height)
-    w.fill(0)
-    w.noStroke()
-    w.rect(w.width/2+50,0,100,w.height)
-    w.rect(-w.width/2-50,0,100,w.height)
-    w.rect(0,-w.height/2-50,w.width,100)
-    w.rect(0,w.height/2+50,w.width,100)
-    
-    w.pop()
+
+    for (let i = 3; i >= 0; i--) {
+      w.push();
+      w.translate(i * 15, i * -15);
+      drawTab(i === 0);
+      w.pop();
+    }
+    w.fill(0, 0, 0, 30);
+    w.stroke(0, 255, 0);
+    w.rect(0, 0, w.width, w.height);
+    w.line(-w.width / 2, -w.height / 2 + 75, w.width / 2, -w.height / 2 + 75);
+    w.line(-w.width / 2, w.height / 2 - 25, w.width / 2, w.height / 2 - 25);
+    w.fill(0, 255, 0);
+    w.rect(0, -w.height / 2 + 25, w.width, 50);
+    w.fill(0);
+    w.text(
+      "/DEV/TTY/TORUS_RUNNER_V3.EXE",
+      -w.width / 2 + 10,
+      -w.height / 2 + 35
+    );
+    w.noStroke();
+    w.rect(w.width / 2 - 15, -w.height / 2 + 25, 12, 40);
+    w.rect(w.width / 2 - 35, -w.height / 2 + 25, 12, 40);
+
+    w.pop();
     w.push();
     w.stroke(0, 255, 0);
     w.strokeWeight(1);
     w.translate(0, 0, -w.cos(w.frameCount) * 150 - 150);
-    w.rotateX(30)
-    w.rotateY(w.frameCount)
+    w.rotateX(30);
+    w.rotateY(w.frameCount);
     w.fill(0);
 
-    w.torus(200, 100,24, 16)
+    w.torus(200, 100, 24, 16);
 
     w.pop();
   };
@@ -350,27 +412,20 @@ let tephro = new p5(teph);
 let glp = new p5(glyphSketch);
 let torus = new p5(torusSketch);
 
-
-
 function openNav() {
   let nav = document.getElementById("left-nav");
   const onMobile = window.matchMedia("(max-width: 1000px)");
-  
+
   if (onMobile.matches) {
     nav.style.width = "50%";
-    nav.style.fontSize = "60px"
+    nav.style.fontSize = "60px";
     nav.style.padding = "64px";
-
   } else {
     nav.style.width = "150px";
-    nav.style.fontSize = "32px"
+    nav.style.fontSize = "32px";
     nav.style.padding = "32px";
-
-
   }
 }
-
-
 
 function closeNav() {
   let nav = document.getElementById("left-nav");
