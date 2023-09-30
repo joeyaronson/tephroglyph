@@ -64,7 +64,6 @@ let glyphSketch = (w) => {
     }
 
     w.background(0);
-  ;
     let tempString = "> " + string.substring(0, typeIndex);
     if (frameCount % 50 < 25) {
       tempString += "_";
@@ -409,9 +408,12 @@ let torusSketch = (w) => {
 };
 
 let tephro = new p5(teph);
-
-let glp = new p5(glyphSketch);
-let torus = new p5(torusSketch);
+let glp;
+let torus;
+if (document.getElementById("gylph") && document.getElementById("torus")) {
+  glp = new p5(glyphSketch);
+  torus = new p5(torusSketch);
+}
 
 function openNav() {
   let nav = document.getElementById("left-nav");

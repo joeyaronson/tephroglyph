@@ -43,8 +43,21 @@ title-container {
   font-size: 30px;
   background-color: black;
   width: 800px;
-  text-align: center;
+  text-align: left;
   justify-content: flex-start;
+}
+
+.title {
+  margin-top: 32px;
+  font-size: 70px;
+}
+
+.about-content {
+  margin-top: 32px;
+  line-height: 30px;
+}
+#content-glyphs {
+  margin-top: 48px;
 }
 
 glyph-container {
@@ -138,5 +151,4 @@ h1 {
   height: 0.9em;
   width: 0.9em;
   margin-right: 8px;
-
 }
