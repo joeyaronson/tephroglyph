@@ -410,7 +410,7 @@ let torusSketch = (w) => {
 let tephro = new p5(teph);
 let glp;
 let torus;
-if (document.getElementById("gylph") && document.getElementById("torus")) {
+if (window.location.href.includes("index")) {
   glp = new p5(glyphSketch);
   torus = new p5(torusSketch);
 }
