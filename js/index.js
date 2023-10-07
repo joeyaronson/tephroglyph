@@ -16,7 +16,6 @@ let teph = (w) => {
     w.translate(-25, 0, -w.cos(w.frameCount) * 50 - 50);
     w.scale(1100);
     w.background(0);
-    // w.rotateZ(270);
     w.rotateX(270);
     w.rotateZ(w.cos(w.frameCount / 2) * 80);
     w.model(tephroOBJ);
@@ -26,7 +25,7 @@ let teph = (w) => {
 
 let glyphSketch = (w) => {
   w.preload = () => {
-    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    font = w.loadFont("css/white-rabbit.woff");
   };
 
   w.setup = () => {
@@ -308,7 +307,7 @@ let glyphSketch = (w) => {
 };
 let torusSketch = (w) => {
   w.preload = () => {
-    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    font = w.loadFont("css/white-rabbit.woff");
   };
   w.setup = () => {
     let myCanvas = w.createCanvas(720, 720, w.WEBGL);
@@ -413,26 +412,4 @@ let torus;
 if (window.location.href.includes("index")) {
   glp = new p5(glyphSketch);
   torus = new p5(torusSketch);
-}
-
-function openNav() {
-  let nav = document.getElementById("left-nav");
-  const onMobile = window.matchMedia("(max-width: 1000px)");
-
-  if (onMobile.matches) {
-    nav.style.width = "50%";
-    nav.style.fontSize = "60px";
-    nav.style.padding = "64px";
-  } else {
-    nav.style.width = "200px";
-    nav.style.fontSize = "32px";
-    nav.style.padding = "32px";
-  }
-}
-
-function closeNav() {
-  let nav = document.getElementById("left-nav");
-
-  nav.style.width = "0";
-  nav.style.padding = "0px";
 }

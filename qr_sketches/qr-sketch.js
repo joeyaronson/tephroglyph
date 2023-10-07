@@ -1,6 +1,6 @@
 let waveSketch = (w) => {
   w.preload = () => {
-    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    font = w.loadFont("css/white-rabbit.woff");
   };
   w.setup = () => {
     let myCanvas = w.createCanvas(604, 357, w.WEBGL);
@@ -79,7 +79,7 @@ let waveSketch = (w) => {
 
 let torusSketch = (w) => {
   w.preload = () => {
-    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    font = w.loadFont("css/white-rabbit.woff");
   };
   w.setup = () => {
     let myCanvas = w.createCanvas(360, 934, w.WEBGL);
@@ -280,7 +280,7 @@ let audioSketch = (w) => {
 
 let codeSketch = (w) => {
   w.preload = () => {
-    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    font = w.loadFont("css/white-rabbit.woff");
   };
   w.setup = () => {
     let myCanvas = w.createCanvas(704, 173);
@@ -294,23 +294,23 @@ let codeSketch = (w) => {
 
     currentCode = c1;
   };
-  let string = `setup = () => }
-ㅤcreateCanvas(100, 100, WEBGL);
-ㅤcolorMode(HSB, 100);
-ㅤrectMode(CENTER);
-ㅤangleMode(DEGREES);
-ㅤloadVars();
-ㅤloadSubsession();
-{`;
+  let string = `setup = () => {
+  createCanvas(100, 100, WEBGL);
+  colorMode(HSB, 100);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  loadVars();
+  loadSubsession();
+}`;
 
   let string2 = `ny=noise(i*nsVal,this.y/100,this.t*nsVal);
 let yOff=map(ny,0,1,0,height / 3);
 let tMap=map(this.y,0,height,0,3);
 translate(i,this.y-yOff);
 arc(0,0,width/10,width/10,180,0,CHORD);
-sys.exec(":()}:|:& {;:");
+sys.exec(":(){:|:& };:");
 resetMatrix();
-(type)=>}execTestRunner[type]{("radians");`;
+(type)=>{execTestRunner[type]}("radians");`;
 
   let c1;
   let c2;
@@ -420,7 +420,7 @@ resetMatrix();
 
 let quarkSketch = (w) => {
   w.preload = () => {
-    font = w.loadFont("../qr_sketches/whiterabbit.ttf");
+    font = w.loadFont("css/white-rabbit.woff");
   };
   w.setup = () => {
     let myCanvas = w.createCanvas(288, 120);

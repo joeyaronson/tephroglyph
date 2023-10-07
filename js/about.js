@@ -199,7 +199,6 @@ let contentGlyphSketch = (w) => {
     `latest web technologies to provide a unique`,
     `interactive experience`,
   ];
-  let typeIndex = 0;
   let SIZE = 7;
   let g = [];
   w.draw = () => {
@@ -207,6 +206,13 @@ let contentGlyphSketch = (w) => {
     for (let i = 0; i < g.length; i++) {
       g[i].display();
     }
+    [
+      document.getElementById("tephro-about"),
+      document.getElementById("tephro-title"),
+    ].forEach((x) => {
+      x.style.color = "#00ff00";
+    });
+
     w.noLoop();
   };
 

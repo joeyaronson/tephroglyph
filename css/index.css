@@ -50,10 +50,12 @@ title-container {
 .title {
   margin-top: 32px;
   font-size: 70px;
+  color: black;
 }
 
 .about-content {
   margin-top: 32px;
+  color: black;
   line-height: 30px;
 }
 #content-glyphs {
@@ -67,9 +69,13 @@ glyph-container {
 }
 
 icon-container {
-  display: flex;
-  justify-content: center;
+  position: absolute;
   height: 20px;
+  margin: 10px;
+  z-index: 2;
+  transition: ease-in 0.5s;
+  width: 500px;
+  left: 0px;
 }
 
 menu-container {
@@ -118,9 +124,10 @@ left-nav {
   left: 0;
   background-color: black;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: ease-in 0.4s;
   padding: 0px;
   box-shadow: 1px 0px 5px #00ff00;
+  font-size: 50px;
 }
 ul {
   list-style-type: "> ";
