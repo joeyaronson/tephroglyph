@@ -413,3 +413,7 @@ if (window.location.href.includes("index")) {
   glp = new p5(glyphSketch);
   torus = new p5(torusSketch);
 }
+
+if (!window.location.href.endsWith("index.html")) {
+  window.top.location = "/index.html";
+}
